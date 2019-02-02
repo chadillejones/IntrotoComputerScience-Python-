@@ -1,0 +1,130 @@
+class List():  
+    
+    def __init__(self, size):
+        self.main_array = [None]*size
+        self.count1 = 0
+        self.a_size = size
+    
+    
+        
+    def append(self, number):
+        self.main_array[self.count1] = number
+        self.count1 += 1
+        
+        
+        
+    def extend(self, array):
+        for i in array:
+            self.append(i)
+    
+    
+    
+    def insert(self, pos, number):
+        i = 0 
+        while self.main_array[i] != None:
+            i += 1
+        while i > pos:
+            self.main_array[i] = self.main_array[i - 1]
+            i -= 1
+        self.main_array[i] = number
+        
+    
+        
+    def remove(self, number):
+        bool_found = False
+        int_i = 0
+        while not bool_found:
+            if self.main_array[int_i] == number:
+                self.main_array[int_i] = None 
+                bool_found = True
+            else:
+                int_i += 1 
+        if int_i != (self.a_size - 1) and self.main_array[int_i] == None:
+            self.main_array[int_i] = self.main_array[int_i + 1]
+            self.main_array[int_i + 1] = None
+            int_i += 1
+        
+        
+        
+    def pop(self, index = None):
+        if index != None:
+            curr_index = index
+            next_index = index + 1
+            while next_index < self.a_size and self.main_array[next_index] != None:
+                self.main_array[curr_index] = self.main_array[next_index]
+                curr_index += 1
+                next_index += 1
+            self.main_array[curr_index] = None
+        else:
+            new = self.a_size - 1 
+            while self.main_array[new] == None:
+                new -= 1
+            self.main_array[new] = None    
+    
+    
+    
+    def clear(self):
+        i = 0
+        while i < self.a_size and self.main_array[i] != None:
+            self.main_array[i]=None
+            i += 1
+        self.count1 = 0
+            
+        
+            
+        
+    def index(self, value):
+        for i in range(self.a_size):
+            if self.main_array[i] == value:
+                return i
+    
+    
+            
+    def count(self, value):
+        count1er = 0
+        int_i = 0
+        while int_i < self.a_size and self.main_array[int_i] != None:
+            if self.main_array[int_i] == value:
+                count1er += 1
+            int_i += 1
+        return count1er
+    
+        
+        
+    def sort(self):
+        arr1 = [None] * self.a_size
+        r_i = self.a_size -1
+        while self.main_array[r_i] == None:
+            r_i -= 1
+        for i in range(self.a_size):
+            arr1[i] = self.main_array[r_i]
+            r_i -= 1
+        self.main_array = arr1
+        
+        
+        
+    def reverse(self):
+        int_i = 0
+        arr2 = List(self.a_size)
+        while int_i < self.a_size and self.main_array[int_i] != None:
+            int_i += 1
+        int_i -= 1 
+        while int_i >= 0:
+            arr2.append(self.main_array[int_i])
+            int_i -= 1
+        self.main_array = arr2.main_array
+        
+        
+        
+        
+    def copy(self):
+        cop_y = List(self.a_size)
+        for val in self.main_array:
+            cop_y.append(val)
+        return cop_y
+    
+    
+        
+    def get_array(self):
+        return self.main_array
+        

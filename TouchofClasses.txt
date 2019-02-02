@@ -1,0 +1,38 @@
+class Car():
+    
+    def __init__(self,model,year,lpn,speed=0.0,accel=10,color="black",sound="HONK"):
+        self.model=model
+        self.year=year
+        self.number=lpn
+        self.speed=speed
+        self.accel=accel
+        self.color=color
+        self.sound=sound
+        
+    def honk(self):
+        return self.sound
+        
+    def describe(self):
+        str_descr="A "+self.color+" "+str(self.year)+" "+self.model+", with license plate number "+str(self.number)+"."
+        print(str_descr)
+        return str_descr
+        
+
+    def change_plate(self,new_plate):
+        self.number=new_plate
+        
+    def how_fast(self):
+        return self.speed
+        
+    def accelerate(self, time):
+        int_speed=time*self.accel
+        self.speed=int_speed+self.speed
+        
+    def brake(self, time):
+        int_speed=time*10
+        self.speed=self.speed-int_speed
+        if self.speed<0:
+            self.speed=0
+        print(self.speed)
+        
+            

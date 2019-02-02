@@ -1,0 +1,20 @@
+# Don't change this line.
+def run():
+    # Replace the code below with your code.
+    string_temp="null"
+    while string_temp!="exit":
+        string_temp=input("Enter a temperature:\n")
+        if string_temp!="exit":
+            float_temp=float(string_temp)
+            string_scale=input("Is that in C or in F?\n")
+            if string_scale=="C":
+                float_converted=(float_temp)*1.8+32
+                string_scaleconv="Fahrenheit."
+            elif string_scale=="F":
+                float_converted=(float_temp-32)/1.8
+                string_scaleconv="Celsius."
+            print("That's "+str(float_converted)+" in "+string_scaleconv)
+    print("Goodbye!")   
+# Don't change these lines.
+if __name__ == "__main__":
+    run()

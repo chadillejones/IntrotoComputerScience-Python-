@@ -1,0 +1,52 @@
+def run():
+    # Your code goes here.
+    def AddTemp(floats_temp):
+        print("What was the temperature?")
+        floats_temp.append(input())
+        return 
+    
+    def EditTemp(floats_temp):
+        string_position=input("Edit reading at which position?\n")
+        floats_temp[int(string_position)-1]=input("What should the value be instead?\n")
+        return
+    
+    def PrintTemp(floats_temp):
+        for int_counter in range(0, len(floats_temp)):
+            print(str(int_counter+1)+": "+str(float(floats_temp[int_counter])))
+        return
+    
+    def RemoveTemp(floats_temp):
+        int_position=int(input("Remove reading at which position?\n"))
+        floats_temp.pop(int_position-1)
+        return
+            
+    floats_temp=[]
+    print("What should the program do?")
+    print("[A]dd a reading.")
+    print("[E]dit a reading.")
+    print("[P]rint existing readings.")
+    print("[R]emove a reading.")
+    print("[Q]uit.")
+    string_choice=input()
+
+    while(string_choice!="Q"):
+        if(string_choice=="A"):
+            AddTemp(floats_temp)
+        elif(string_choice=="E"):
+            EditTemp(floats_temp)
+        elif(string_choice=="P"):
+            PrintTemp(floats_temp)
+        elif(string_choice=="R"):
+            RemoveTemp(floats_temp)
+        print("What should the program do?")
+        print("[A]dd a reading.")
+        print("[E]dit a reading.")
+        print("[P]rint existing readings.")
+        print("[R]emove a reading.")
+        print("[Q]uit.")
+        string_choice=input()
+    print("Goodbye!")
+
+# Don't change anything below this line.
+if __name__ == "__main__":
+    run()
